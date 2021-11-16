@@ -2,94 +2,109 @@
 <html>
     <head>
         <title>Northsore Football has a Winning Record!</title>
-        <style>
-            body {
-                background: rgb(32, 131, 245);
-                color: rgb(241, 244, 245);
+        <style type="text/css">
+          body {
+              background: rgb(32, 131, 245);
+              color: rgb(241, 244, 245);
+              padding: 10px;
+              font-family: arial;
+          }
+          header {
+              font-size: 1.5em;
+              font-weight: bold;
+          }
+          
+          #all-contents {
+              max-width: 800px;
+              margin: auto;
+          }
+  
+          /* navigation menu */
+          nav {
+              background: rgb(196, 216, 226);
+              margin: 0 auto;
+              display: flex;
+              padding: 10px;
+          }
+          h1 {
+              display: flex;
+              align-items: center;
+              color: rgb(14, 13, 13);
+              flex: 1;
+          }
+          #nav-ul {
+              list-style-image: none;
+          }
+          .nav-li {
+              display: inline-block;
+              padding: 0 10px;
+          }
+          .nav-a {
+              text-decoration: none;
+              color: #fff;
+          }
+  
+          /* main container area beneath menu */
+          main {
+              background: rgb(245, 238, 219);
+              display: flex;
+          }
+          .content {
+              flex: 1;
+              padding: 15px;
+          }
+                      /* portfolio styles */
+                      .content h1 {
+                color: black;
+            }
+            
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
                 padding: 10px;
-                font-family: arial;
+                border-radius: 10px;
+                margin-bottom: 10px;
             }
-            #all-contents {
-                max-width: 800px;
-                margin: auto;
-            }
-        
-            /* navigation menu */
-            nav {
-                background: rgb(196, 216, 226);
-                margin: 0 auto;
-                margin-bottom: 20px;
-                display: flex;
-                padding: 10px;
-            }
-            h1 {
-                display: flex;
-                align-items: center;
-                color: rgb(14, 13, 13);
-                flex: 1;
-                margin: 0;
-            }
-            #nav-ul {
-                list-style-image: none;
-            }
-            .nav-li {
-                display: inline-block;
-                padding: 0 10px;
-            }
-            a {
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
                 text-decoration: none;
-                color: #fff;
-            }
-        
-            /* main container area beneath menu */
-            main {
-                background: rgb(32, 114, 245);
-                display: flex;
-            }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar-img {
-                width: 200px;
-            }
-            .content {
-                flex: 1;
-                padding: 15px;
-            }
-            #interests {
-                border: 4px silver ridge;
-                padding: 8px;
-            }
-            h2, h3 {
-                margin: 0px;
+                color: #454545;
             }
 
+      </style>
+          
+</head>
 
-
-        </style>
-    </head>
-    
     <body>
-        <!--All content goes here-->
-        <div> 
-            <nav>
-                <h1>Jackson Fayard's Website</h1>
-                    <ul id="nav-ul">
-                        <li class="nav-li"><a href="index.html"> Home </a>
-                        </li>
-                        <li class= "nav-li"><a href="portfolio.html"> Portfolio </a>
-                        </li>
-                    </ul>
-            </nav>
-    
-            <main>
-                
-
-
-
-                
-            </main>
-        </div>
+      <div id="all-contents">
+        <nav>
+            <h1>Northshore Football has a Winning Record</h1>
+            <ul id="nav-ul">
+                <li class="nav-li">
+                  <a class="nav-a" href="index.html">Home</a>
+                </li>
+                <li class="nav-li">
+                  <a class="nav-a" href="portfolio.html">Portfolio</a>
+                </li>
+            </ul>
+        </nav>
+        <main><div class="content">
+          <h1>Portfolio</h1>
+          <ul id="portfolio">
+            <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+            <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+            <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
+        
+          </ul>
+        </main>
+      </div>
     </body>
 </html>
