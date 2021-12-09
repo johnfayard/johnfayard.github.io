@@ -10,7 +10,7 @@
         steve: {assetKey: 'steve', points: 30},
         grace: {assetKey: 'grace', points: 40},
         kennedi: {assetKey: 'kennedi', points: 50},
-        present: {assetKey: 'present', points:100}
+        present: {assetKey: 'present', points:23}
     };
     
     /**
