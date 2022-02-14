@@ -20,7 +20,7 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         
         // TODO 1 : Declare and initialize our variables
-        var circle = 1;
+        var circle;
         var circles = [];
         // TODO 2 : Create a function that draws a circle 
         function drawCircle(){
@@ -31,11 +31,15 @@ var init = function (window) {
         };
 
         // TODO 3 / 8 : Call the drawCircle() function 
-            drawCircle();
-            drawCircle();
-            drawCircle();
-            drawCircle();
-            drawCircle();
+           // drawCircle();
+            //drawCircle();
+            //drawCircle();
+            //drawCircle();
+            //drawCircle();
+            for(var i =0; i >=100; i++){
+                drawCircle();
+            }
+
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
         ////////////////////////////////////////////////////////////
@@ -73,11 +77,11 @@ var init = function (window) {
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }if ( circle.x < 0 ) {
-                circle.x - canvas.width;
+                circle.x = canvas.width;
             }if ( circle.y < 0 ) {
+                circle.y = canvas.height;
+            }if ( circle.y > canvas.height ) {
                 circle.y = 0;
-            }if ( circle.y > 0 ) {
-                circle.y = -canvas.height;
             }
             
             // TODO 7 : YOUR CODE STARTS HERE //////////////////////
