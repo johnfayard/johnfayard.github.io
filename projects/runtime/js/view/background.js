@@ -27,6 +27,7 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tree;
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -58,12 +59,19 @@ var background = function (window) {
             
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            for(var k = 0;k<5;k++){
+                var buildingHeight = 300;// creates a building height that holds it at 300 pixels
+                var building = draw.rect(75,buildingHeight, 'LightGray', 'Black', 1);//creates a variable that 
+                building.x = 200*k;// positions the x of each building to 200 pixls
+                building.y = groundY-buildingHeight;// sets the y of the building to groundY - the building height
+                background.addChild(building);// adds building to the background
+                buildings.push(building);// pushes the building variable to the end of the buildings array
+            }
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');// draws the tree
-            tree.x =0;// gives the tree a position on the x
-            tree.y =100;// aassigns the y value to the tree
+            tree.x =400;// gives the tree a position on the x
+            tree.y =360;// aassigns the y value to the tree
             tree.scaleX = .5// makes the tree smaller in width
             tree.scaleY =.5// makes the tree smaller in height
             background.addChild(tree);
@@ -80,13 +88,18 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x + 1;// taking the value of tree.x and increasing it evrytime the function runs. makes it move right
+            tree.x = tree.x - 1;// taking the value of tree.x and increasing it evrytime the function runs. makes it move right
             if(tree.x < -200){
                 tree.x = canvasWidth;
             }
             
             // TODO 5: Part 2 - Parallax
-            
+            for(var k =0;k < buildings.length; k++){
+                buildings[k].x = buildings[k].x -0.5;
+                if (buildings[k].x < 0){
+                    buildings[k].x = canvasWidth;
+                }
+            }
 
         } // end of update function - DO NOT DELETE
         
