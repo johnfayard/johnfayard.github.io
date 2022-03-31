@@ -16,17 +16,26 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY-50 },
-                { "type": "sawblade", "x": 600, "y": groundY-50 },
-                { "type": "sawblade", "x": 800, "y": groundY-50 },
-
-                { "type": "enemy", "x": 500, "y": groundY-50 },
-                { "type": "enemy", "x": 700, "y": groundY-50 },
+                { "type": "sawblade", "x": 400, "y": groundY-110 },
+                { "type": "sawblade", "x": 600, "y": groundY+20},
+                { "type": "sawblade", "x": 800, "y": groundY+20 },
+                { "type": "sawblade", "x": 2500, "y": groundY-110 },
+                { "type": "sawblade", "x": 2800, "y": groundY-110 },
+                
+                
                 { "type": "enemy", "x": 900, "y": groundY-50 },
+                { "type": "enemy", "x": 1500, "y": groundY-50 },
+                { "type": "enemy", "x": 2000, "y": groundY-50 },
+                { "type": "enemy", "x": 2700, "y": groundY-50 },
+                { "type": "enemy", "x": 3200, "y": groundY-50 },
 
-                { "type": "reward", "x": 550, "y": groundY-50 },
-                { "type": "reward", "x": 750, "y": groundY-50 },
-                { "type": "reward", "x": 950, "y": groundY-50 },
+
+
+                { "type": "reward", "x": 1100, "y": groundY-50 },
+                { "type": "reward", "x": 1700, "y": groundY-50 },
+                { "type": "reward", "x": 2500, "y": groundY-50 },
+                { "type": "reward", "x": 3000, "y": groundY-50 },
+                { "type": "reward", "x": 3600, "y": groundY-50 },
             ]
         };
         window.levelData = levelData;
@@ -51,7 +60,7 @@ var level01 = function (window) {
         
         function createEnemy(x,y){
             var enemy = game.createGameItem('enemy',25);//creating the game item and storing it in the variable enemy 
-            var redSquare = draw.bitmap('img/.png');// creates rectangle and stores as redSquare
+            var redSquare = draw.bitmap('img/newyoungboy.png');// creates rectangle and stores as redSquare
             redSquare.x = -25;//
             redSquare.y = -25;//
             enemy.addChild(redSquare);// adds the redSquare to the enemy game item
@@ -59,10 +68,13 @@ var level01 = function (window) {
             enemy.x = x;
             enemy.y = y;
             
+            enemy.scaleX = .5;
+            enemy.scaleY =.5;
+
             enemy.velocityX = -1;// this causes the enemy to move towards us 
             game.addGameItem(enemy);// adds enemy to the game
 
-            enemy.rotationalVelocity = 1;
+           // enemy.rotationalVelocity = 1;
             enemy.onPlayerCollision = function() {
                 console.log('The enemy has hit Halle');
                 game.changeIntegrity(-20);// takes away 20 health when the enemy hits Hallebot 
@@ -77,7 +89,7 @@ var level01 = function (window) {
 
         function createReward(x,y){
             var reward = game.createGameItem('reward',25);//creating the game item and storing it in the variable reward 
-            var blueSquare = draw.bitmap(img/newchain.png);// creates rectangle and stores as redSquare
+            var blueSquare = draw.bitmap('img/newchain.png');// creates rectangle and stores as redSquare
             blueSquare.x = -25;//
             blueSquare.y = -25;//
             reward.addChild(blueSquare);// adds the blueSquare to the reward game item
@@ -85,10 +97,12 @@ var level01 = function (window) {
             reward.x = x;
             reward.y = y;
             
+            reward.scaleX = 0.5;
+            reward.scaleY = 0.5;
             reward.velocityX = -1;// this causes the reward to move towards us 
             game.addGameItem(reward);// adds reward to the game
 
-            reward.rotationalVelocity = 1;
+            //reward.rotationalVelocity = 1;
             reward.onPlayerCollision = function() {
                 console.log('The reward has hit Halle');
                 game.changeIntegrity(+20);// takes away 20 health when the reward hits Hallebot 
