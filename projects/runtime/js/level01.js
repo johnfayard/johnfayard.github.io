@@ -16,31 +16,31 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY-110 },
-                { "type": "sawblade", "x": 600, "y": groundY+20},
-                { "type": "sawblade", "x": 800, "y": groundY+20 },
-                { "type": "sawblade", "x": 2500, "y": groundY-110 },
-                { "type": "sawblade", "x": 2800, "y": groundY-110 },
+                { "type": "sawblade", "x": 400, "y": groundY-110 },//puts the sawblades on the map
+                { "type": "sawblade", "x": 600, "y": groundY+20},//puts the sawblades on the map
+                { "type": "sawblade", "x": 800, "y": groundY+20 },//puts the sawblades on the map
+                { "type": "sawblade", "x": 2500, "y": groundY-110 },//puts the sawblades on the map
+                { "type": "sawblade", "x": 2800, "y": groundY-110 },//puts the sawblades on the map
+                { "type": "sawblade", "x": 2800, "y": groundY+20 },//puts the sawblades on the map
                 
-                
-                { "type": "enemy", "x": 900, "y": groundY-50 },
-                { "type": "enemy", "x": 1500, "y": groundY-50 },
-                { "type": "enemy", "x": 2000, "y": groundY-50 },
-                { "type": "enemy", "x": 2700, "y": groundY-50 },
-                { "type": "enemy", "x": 3200, "y": groundY-50 },
+                { "type": "enemy", "x": 900, "y": groundY-50 },// puts the enemy on the map
+                { "type": "enemy", "x": 1500, "y": groundY-50 },// puts the enemy on the map
+                { "type": "enemy", "x": 2000, "y": groundY-50 },// puts the enemy on the map
+                { "type": "enemy", "x": 2700, "y": groundY-50 },// puts the enemy on the map
+                { "type": "enemy", "x": 3200, "y": groundY-50 },// puts the enemy on the map
 
 
 
-                { "type": "reward", "x": 1100, "y": groundY-50 },
-                { "type": "reward", "x": 1700, "y": groundY-50 },
-                { "type": "reward", "x": 2500, "y": groundY-50 },
-                { "type": "reward", "x": 3000, "y": groundY-50 },
-                { "type": "reward", "x": 3600, "y": groundY-50 },
+                { "type": "reward", "x": 1100, "y": groundY-50 },//puts the reward on the map
+                { "type": "reward", "x": 1700, "y": groundY-50 },//puts the reward on the map
+                { "type": "reward", "x": 2500, "y": groundY-50 },//puts the reward on the map
+                { "type": "reward", "x": 3000, "y": groundY-50 },//puts the reward on the map
+                { "type": "reward", "x": 3600, "y": groundY-50 },//puts the reward on the map
             ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
@@ -65,11 +65,11 @@ var level01 = function (window) {
             redSquare.y = -25;//
             enemy.addChild(redSquare);// adds the redSquare to the enemy game item
         
-            enemy.x = x;
-            enemy.y = y;
+            enemy.x = x;//puts the enemy x placement where the x variable is set
+            enemy.y = y;// puts the enemy y placement where the y varibale is set
             
-            enemy.scaleX = .5;
-            enemy.scaleY =.5;
+            enemy.scaleX = .5;//scales the enemy down
+            enemy.scaleY =.5;//scales the enemy down
 
             enemy.velocityX = -1;// this causes the enemy to move towards us 
             game.addGameItem(enemy);// adds enemy to the game
@@ -80,7 +80,7 @@ var level01 = function (window) {
                 game.changeIntegrity(-20);// takes away 20 health when the enemy hits Hallebot 
             };
             enemy.onProjectileCollision = function() {
-                console.log('The Projectile has hit Halle');
+                console.log('The Projectile has hit Halle');// if the enemy hits halle then the health goes down
                 game.changeIntegrity(10);
                 game.increaseScore(100);
                 enemy.fadeOut();
@@ -90,15 +90,15 @@ var level01 = function (window) {
         function createReward(x,y){
             var reward = game.createGameItem('reward',25);//creating the game item and storing it in the variable reward 
             var blueSquare = draw.bitmap('img/newchain.png');// creates rectangle and stores as redSquare
-            blueSquare.x = -25;//
-            blueSquare.y = -25;//
+            blueSquare.x = -25;//places the reward x at -25
+            blueSquare.y = -25;//places the reward y at -25
             reward.addChild(blueSquare);// adds the blueSquare to the reward game item
         
-            reward.x = x;
-            reward.y = y;
+            reward.x = x;//places the reward x coordinate at the value of x
+            reward.y = y;//places the reward y coordinate at the value of y
             
-            reward.scaleX = 0.5;
-            reward.scaleY = 0.5;
+            reward.scaleX = 0.5;//scales the reward x down
+            reward.scaleY = 0.5;//scales the reward y down
             reward.velocityX = -1;// this causes the reward to move towards us 
             game.addGameItem(reward);// adds reward to the game
 
@@ -109,20 +109,20 @@ var level01 = function (window) {
             };
             reward.onProjectileCollision = function() {
                 console.log('The Projectile has hit Halle');
-                game.changeIntegrity(10);
+                game.changeIntegrity(10);//if the reward is hit by halle bullet then the score will go up
                 game.increaseScore(100);
-                reward.fadeOut();
+                reward.fadeOut();// causes the reward to fade out of the screen once used
             };
          }
-        for(var i =0; i < levelData.gameItems.length; i++){
+        for(var i =0; i < levelData.gameItems.length; i++){// this loop goes through the array above that runs through each of the enemy, rewards, and sawblades to call them into the function
             var gameItem = levelData.gameItems[i];
-            if(gameItem.type === "sawblade"){
+            if(gameItem.type === "sawblade"){//if the sawblade is called then run the sawblade function
                 createSawBlade(gameItem.x, gameItem.y);
             }
-            if(gameItem.type === "enemy"){
+            if(gameItem.type === "enemy"){// if the enemy is called then run the enemy function
                 createEnemy(gameItem.x, gameItem.y);
             }
-            if(gameItem.type === "reward"){
+            if(gameItem.type === "reward"){//if the reward is called then run the reward function
                 createReward(gameItem.x, gameItem.y);
             }
         }
